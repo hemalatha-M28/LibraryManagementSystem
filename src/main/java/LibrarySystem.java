@@ -4,7 +4,7 @@ import java.awt.*;
 import java.sql.*;
 import java.util.HashMap;
 
-public class LibraryApp extends JFrame
+public class LibrarySystem extends JFrame
 {
     JTextField idField, titleField, authorField;
     JComboBox<String> statusBox;
@@ -16,7 +16,7 @@ public class LibraryApp extends JFrame
 
     Connection con;
 
-    LibraryApp()
+    LibrarySystem()
     {
         setTitle("Library Management System");
         setSize(750, 500);
@@ -26,10 +26,11 @@ public class LibraryApp extends JFrame
 
         try
         {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/librarydb",
+                "jdbc:mysql://localhost:3306/librarydb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC",
                 "root",
-                "YOUR_MYSQL_PASSWORD"
+                ""
             );
         }
         catch(Exception e)
@@ -197,6 +198,6 @@ public class LibraryApp extends JFrame
 
     public static void main(String args[])
     {
-        SwingUtilities.invokeLater(() -> new LibraryApp());
+        SwingUtilities.invokeLater(() -> new LibrarySystem());
     }
 }

@@ -2,7 +2,8 @@ CREATE DATABASE IF NOT EXISTS librarydb;
 
 USE librarydb;
 
-CREATE TABLE IF NOT EXISTS book (
+CREATE TABLE IF NOT EXISTS book
+(
     book_id VARCHAR(20) PRIMARY KEY,
     book_title VARCHAR(100),
     author_name VARCHAR(100),
